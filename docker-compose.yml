@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  mysqlsrv:
+    image: mysql:5.7
+    ports:
+      - "3306:3306"
+    volumes:
+      - /home/bareira/mysql:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=bareiraBook
+      - MYSQL_USER=bareira
+    networks:
+      - mysql-compose-network
+      
+networks: 
+    mysql-compose-network:
+        driver: bridge
+     
